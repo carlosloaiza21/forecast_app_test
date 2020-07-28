@@ -9,7 +9,7 @@ export const searchAction = (value)=>({
 })
 
 export const searchActionA = (value) => dispatch =>{
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=${api}`)
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${value}&units=metric&appid=${api}`)
     .then(({data})=>{
         const zoom = 4;
         const lat = Math.floor((1-Math.log(Math.tan(data.coord.lat*Math.PI/180) + 1/Math.cos(data.coord.lat*Math.PI/180))/Math.PI)/2 *Math.pow(2,zoom))
